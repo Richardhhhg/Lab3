@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 
 /**
  * This class provides the service of converting country codes to their names.
@@ -12,6 +16,8 @@ import java.util.List;
 public class CountryCodeConverter {
 
     // TODO Task: pick appropriate instance variable(s) to store the data necessary for this class
+    private final Map<String, String> codeToCountry;
+    private final Map<String, String> countryToCode;
 
     /**
      * Default constructor which will load the country codes from "country-codes.txt"
@@ -27,6 +33,9 @@ public class CountryCodeConverter {
      * @throws RuntimeException if the resource file can't be loaded properly
      */
     public CountryCodeConverter(String filename) {
+
+        this.codeToCountry = new HashMap<>();
+        this.countryToCode = new HashMap<>();
 
         try {
             List<String> lines = Files.readAllLines(Paths.get(getClass()
