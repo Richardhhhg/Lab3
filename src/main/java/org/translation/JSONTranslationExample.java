@@ -36,7 +36,7 @@ public class JSONTranslationExample {
      */
     public String getCanadaCountryNameSpanishTranslation() {
 
-        JSONObject canada = jsonArray.getJSONObject(124);
+        JSONObject canada = jsonArray.getJSONObject(CANADA_INDEX);
         return canada.getString("es");
     }
 
